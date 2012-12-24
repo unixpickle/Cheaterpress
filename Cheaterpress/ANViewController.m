@@ -14,16 +14,35 @@
 
 @implementation ANViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                              target:self
+                                                              action:@selector(addButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)loadGamesListWithContext:(NSManagedObjectContext *)aContext {
+    context = aContext;
+    NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription * entity = [NSEntityDescription entityForName:@"Game"
+                                               inManagedObjectContext:context];
+    [fetchRequest setPredicate:[NSPredicate predicateWithValue:YES]];
+    [fetchRequest setEntity:entity];
+    
+    NSError * error = nil;
+    games = [context executeFetchRequest:fetchRequest error:&error];
+}
+
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - User Interaction -
+
+- (void)addButtonPressed:(id)sender {
+    
 }
 
 @end

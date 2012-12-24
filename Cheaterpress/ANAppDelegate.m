@@ -12,13 +12,44 @@
 
 @implementation ANAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSURL * modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
+    NSManagedObjectModel * model = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    
+    context = [[NSManagedObjectContext alloc] init];
+    
+    coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    [context setPersistentStoreCoordinator:coordinator];
+    
+    NSString * storeType = NSSQLiteStoreType;
+    NSString * storeFile = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/save.dat"];
+    
+    NSError * error = nil;
+    NSURL * url = [NSURL fileURLWithPath:storeFile];
+    
+    NSPersistentStore * newStore = [coordinator addPersistentStoreWithType:storeType
+                                                             configuration:nil
+                                                                       URL:url
+                                                                   options:nil
+                                                                     error:&error];
+    
+    if (newStore == nil) {
+        NSLog(@"Store Configuration Failure: %@",
+              ([error localizedDescription] != nil) ?
+              [error localizedDescription] : @"Unknown Error");
+    }
+
+    self.navController = [[UINavigationController alloc] init];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ANViewController alloc] initWithNibName:@"ANViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.viewController = [[ANViewController alloc] init];
+    self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
+    
+    [self.navController pushViewController:self.viewController animated:NO];
+    
+    [self.viewController loadGamesListWithContext:context];
     return YES;
 }
 

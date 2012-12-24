@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface ANViewController : UIViewController
+@interface ANViewController : UITableViewController {
+    NSArray * games;
+    NSManagedObjectContext * context;
+    
+    UIBarButtonItem * addButton;
+}
+
+- (void)loadGamesListWithContext:(NSManagedObjectContext *)context;
+
+- (void)addButtonPressed:(id)sender;
 
 @end

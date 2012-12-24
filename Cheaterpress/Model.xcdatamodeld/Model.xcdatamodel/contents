@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C3006" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Box" representedClassName="Box" syncable="YES">
+        <attribute name="column" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="letter" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="row" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="game" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="boxes" inverseEntity="Game" syncable="YES"/>
+    </entity>
+    <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="opponent" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="boxes" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Box" inverseName="game" inverseEntity="Box" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Box" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Game" positionX="160" positionY="192" width="128" height="75"/>
+    </elements>
+</model>

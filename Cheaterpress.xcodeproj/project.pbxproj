@@ -17,7 +17,11 @@
 		FA2F304F1687F0E800576EF9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2F304E1687F0E800576EF9 /* Default@2x.png */; };
 		FA2F30511687F0E800576EF9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2F30501687F0E800576EF9 /* Default-568h@2x.png */; };
 		FA2F30541687F0E800576EF9 /* ANViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F30531687F0E800576EF9 /* ANViewController.m */; };
-		FA2F30571687F0E800576EF9 /* ANViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2F30551687F0E800576EF9 /* ANViewController.xib */; };
+		FA64014D1687F1C500D58DB7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA64014B1687F1C500D58DB7 /* Model.xcdatamodeld */; };
+		FAA6A2811687F2ED002DA071 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA6A2801687F2ED002DA071 /* CoreData.framework */; };
+		FAA6A28B1687F6A8002DA071 /* ANAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6A28A1687F6A8002DA071 /* ANAddViewController.m */; };
+		FAA6A2911687F6BE002DA071 /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6A28E1687F6BE002DA071 /* Box.m */; };
+		FAA6A2921687F6BE002DA071 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6A2901687F6BE002DA071 /* Game.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +40,14 @@
 		FA2F30501687F0E800576EF9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA2F30521687F0E800576EF9 /* ANViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANViewController.h; sourceTree = "<group>"; };
 		FA2F30531687F0E800576EF9 /* ANViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANViewController.m; sourceTree = "<group>"; };
-		FA2F30561687F0E800576EF9 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ANViewController.xib; sourceTree = "<group>"; };
+		FA64014C1687F1C500D58DB7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FAA6A2801687F2ED002DA071 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FAA6A2891687F6A8002DA071 /* ANAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAddViewController.h; sourceTree = "<group>"; };
+		FAA6A28A1687F6A8002DA071 /* ANAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANAddViewController.m; sourceTree = "<group>"; };
+		FAA6A28D1687F6BE002DA071 /* Box.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Box.h; sourceTree = "<group>"; };
+		FAA6A28E1687F6BE002DA071 /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Box.m; sourceTree = "<group>"; };
+		FAA6A28F1687F6BE002DA071 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		FAA6A2901687F6BE002DA071 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA6A2811687F2ED002DA071 /* CoreData.framework in Frameworks */,
 				FA2F303B1687F0E800576EF9 /* UIKit.framework in Frameworks */,
 				FA2F303D1687F0E800576EF9 /* Foundation.framework in Frameworks */,
 				FA2F303F1687F0E800576EF9 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +85,7 @@
 		FA2F30391687F0E800576EF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAA6A2801687F2ED002DA071 /* CoreData.framework */,
 				FA2F303A1687F0E800576EF9 /* UIKit.framework */,
 				FA2F303C1687F0E800576EF9 /* Foundation.framework */,
 				FA2F303E1687F0E800576EF9 /* CoreGraphics.framework */,
@@ -83,11 +96,13 @@
 		FA2F30401687F0E800576EF9 /* Cheaterpress */ = {
 			isa = PBXGroup;
 			children = (
+				FAA6A28C1687F6BD002DA071 /* Model */,
 				FA2F30491687F0E800576EF9 /* ANAppDelegate.h */,
 				FA2F304A1687F0E800576EF9 /* ANAppDelegate.m */,
 				FA2F30521687F0E800576EF9 /* ANViewController.h */,
 				FA2F30531687F0E800576EF9 /* ANViewController.m */,
-				FA2F30551687F0E800576EF9 /* ANViewController.xib */,
+				FAA6A2891687F6A8002DA071 /* ANAddViewController.h */,
+				FAA6A28A1687F6A8002DA071 /* ANAddViewController.m */,
 				FA2F30411687F0E800576EF9 /* Supporting Files */,
 			);
 			path = Cheaterpress;
@@ -103,8 +118,20 @@
 				FA2F304C1687F0E800576EF9 /* Default.png */,
 				FA2F304E1687F0E800576EF9 /* Default@2x.png */,
 				FA2F30501687F0E800576EF9 /* Default-568h@2x.png */,
+				FA64014B1687F1C500D58DB7 /* Model.xcdatamodeld */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FAA6A28C1687F6BD002DA071 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAA6A28D1687F6BE002DA071 /* Box.h */,
+				FAA6A28E1687F6BE002DA071 /* Box.m */,
+				FAA6A28F1687F6BE002DA071 /* Game.h */,
+				FAA6A2901687F6BE002DA071 /* Game.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,7 +190,6 @@
 				FA2F304D1687F0E800576EF9 /* Default.png in Resources */,
 				FA2F304F1687F0E800576EF9 /* Default@2x.png in Resources */,
 				FA2F30511687F0E800576EF9 /* Default-568h@2x.png in Resources */,
-				FA2F30571687F0E800576EF9 /* ANViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +203,10 @@
 				FA2F30471687F0E800576EF9 /* main.m in Sources */,
 				FA2F304B1687F0E800576EF9 /* ANAppDelegate.m in Sources */,
 				FA2F30541687F0E800576EF9 /* ANViewController.m in Sources */,
+				FA64014D1687F1C500D58DB7 /* Model.xcdatamodeld in Sources */,
+				FAA6A28B1687F6A8002DA071 /* ANAddViewController.m in Sources */,
+				FAA6A2911687F6BE002DA071 /* Box.m in Sources */,
+				FAA6A2921687F6BE002DA071 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,14 +219,6 @@
 				FA2F30441687F0E800576EF9 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FA2F30551687F0E800576EF9 /* ANViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA2F30561687F0E800576EF9 /* en */,
-			);
-			name = ANViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -293,8 +315,22 @@
 				FA2F305C1687F0E800576EF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA64014B1687F1C500D58DB7 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA64014C1687F1C500D58DB7 /* Model.xcdatamodel */,
+			);
+			currentVersion = FA64014C1687F1C500D58DB7 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FA2F302D1687F0E800576EF9 /* Project object */;
 }
