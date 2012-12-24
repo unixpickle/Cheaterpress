@@ -9,10 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Box;
 
 @interface Game : NSManagedObject
 
 @property (nonatomic, retain) NSString * opponent;
-@property (nonatomic, retain) NSManagedObject *boxes;
+@property (nonatomic, retain) NSDate * creation;
+@property (nonatomic, retain) NSSet * boxes;
+@end
+
+@interface Game (CoreDataGeneratedAccessors)
+
+- (void)addBoxesObject:(Box *)value;
+- (void)removeBoxesObject:(Box *)value;
+- (void)addBoxes:(NSSet *)values;
+- (void)removeBoxes:(NSSet *)values;
 
 @end

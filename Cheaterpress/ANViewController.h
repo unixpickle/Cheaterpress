@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface ANViewController : UITableViewController {
+#import "ANAddViewController.h"
+#import "ANGameCell.h"
+
+#import "Game.h"
+#import "Box.h"
+
+@interface ANViewController : UITableViewController <ANAddViewControllerDelegate> {
     NSArray * games;
     NSManagedObjectContext * context;
     

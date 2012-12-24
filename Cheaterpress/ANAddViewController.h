@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ANAddViewController : UIViewController
+@class ANAddViewController;
+
+@protocol ANAddViewControllerDelegate
+
+- (void)addViewController:(ANAddViewController *)vc addedWithOpponent:(NSString *)opponent;
+
+@end
+
+@interface ANAddViewController : UIViewController {
+    UITextField * opponentField;
+    UIBarButtonItem * doneButton;
+    __weak id<ANAddViewControllerDelegate> delegate;
+}
+
+@property (nonatomic, weak) id<ANAddViewControllerDelegate> delegate;
+
+- (void)donePressed:(id)sender;
 
 @end

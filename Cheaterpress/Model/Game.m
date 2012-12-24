@@ -7,11 +7,13 @@
 //
 
 #import "Game.h"
+#import "Box.h"
 
 
 @implementation Game
 
 @dynamic opponent;
+@dynamic creation;
 @dynamic boxes;
 
 @end

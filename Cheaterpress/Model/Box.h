@@ -25,4 +25,6 @@ typedef enum {
 @property (nonatomic) int16_t owner;
 @property (nonatomic, retain) Game * game;
 
+- (BOOL)isBoxSurrounded;
+
 @end

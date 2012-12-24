@@ -8,11 +8,12 @@
         <relationship name="game" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Game" inverseName="boxes" inverseEntity="Game" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
+        <attribute name="creation" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="opponent" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="boxes" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Box" inverseName="game" inverseEntity="Box" syncable="YES"/>
+        <relationship name="boxes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Box" inverseName="game" inverseEntity="Box" syncable="YES"/>
     </entity>
     <elements>
         <element name="Box" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Game" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Game" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>
