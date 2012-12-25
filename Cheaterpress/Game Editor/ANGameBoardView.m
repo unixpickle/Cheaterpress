@@ -20,7 +20,11 @@
 }
 
 - (void)selectBox:(Box *)box {
-    selectedBoxes = [NSSet setWithObject:box];
+    if (box) {
+        selectedBoxes = [NSSet setWithObject:box];
+    } else {
+        selectedBoxes = nil;
+    }
     [self setNeedsDisplay];
 }
 
@@ -52,8 +56,13 @@
         CGContextFillRect(context, boxFrame);
         
         if ([selectedBoxes containsObject:b]) {
-            CGContextSetRGBFillColor(context, 0, 0, 0, 0.1);
-            CGContextFillRect(context, boxFrame);
+            if ([selectedBoxes count] == 1) {
+                CGContextSetRGBFillColor(context, 0, 0, 0, 0.1);
+                CGContextFillRect(context, boxFrame);
+            } else {
+                CGContextSetRGBFillColor(context, 1, 1, 0, 1);
+                CGContextFillRect(context, boxFrame);
+            }
         }
         
         CGSize textSize = [b.letter sizeWithFont:font];
