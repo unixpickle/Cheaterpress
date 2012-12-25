@@ -15,7 +15,10 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
         cellView = [[ANGameCellView alloc] initWithScreenWidth];
+        cellView.frame = self.contentView.bounds;
+        cellView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self.contentView addSubview:cellView];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

@@ -20,6 +20,8 @@
                                                               target:self
                                                               action:@selector(addButtonPressed:)];
     self.navigationItem.rightBarButtonItem = addButton;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.rowHeight = kANGameCellViewHeight + 1;
 }
 
 - (void)loadGamesListWithContext:(NSManagedObjectContext *)aContext {
@@ -29,6 +31,7 @@
                                                inManagedObjectContext:context];
     [fetchRequest setPredicate:[NSPredicate predicateWithValue:YES]];
     [fetchRequest setEntity:entity];
+    [fetchRequest setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"creation" ascending:YES]]];
     
     NSError * error = nil;
     games = [context executeFetchRequest:fetchRequest error:&error];
@@ -37,6 +40,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    if (self.tableView.indexPathForSelectedRow) {
+        [self.tableView reloadRowsAtIndexPaths:@[self.tableView.indexPathForSelectedRow]
+                              withRowAnimation:UITableViewRowAnimationNone];
+    }
+    [super viewWillAppear:animated];
 }
 
 #pragma mark - User Interaction -
@@ -61,13 +72,14 @@
             b.row = y;
             b.column = x;
             b.owner = BoxOwnerTypeUnowned;
+            b.letter = @"A";
             [g addBoxesObject:b];
         }
     }
     [context save:nil];
     [self.tableView beginUpdates];
     games = [games arrayByAddingObject:g];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathWithIndex:games.count - 1]]
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(games.count - 1) inSection:0]]
                           withRowAnimation:UITableViewRowAnimationAutomatic];
     [self.tableView endUpdates];
 }
@@ -83,7 +95,41 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ANGameCell * cell = [tableView dequeueReusableCellWithIdentifier:@"GameCell"];
+    if (!cell) {
+        cell = [[ANGameCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GameCell"];
+    }
     
+    cell.cellView.game = [games objectAtIndex:indexPath.row];
+    
+    return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.tableView beginUpdates];
+        Game * game = [games objectAtIndex:indexPath.row];
+        for (Box * b in game.boxes) {
+            [context deleteObject:b];
+        }
+        [context deleteObject:game];
+        NSMutableArray * mGames = [games mutableCopy];
+        [mGames removeObject:game];
+        games = [mGames copy];
+        [context save:nil];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Game * game = [games objectAtIndex:indexPath.row];
+    ANEditorViewController * editor = [[ANEditorViewController alloc] initWithGame:game];
+    [self.navigationController pushViewController:editor animated:YES];
 }
 
 @end

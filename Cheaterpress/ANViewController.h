@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 #import "ANAddViewController.h"
+#import "ANEditorViewController.h"
 #import "ANGameCell.h"
 
 #import "Game.h"

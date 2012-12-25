@@ -32,11 +32,19 @@
 		FA362C011688E158000F38D8 /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362BF51688E158000F38D8 /* BitmapScaleManipulator.m */; };
 		FA362C051688E755000F38D8 /* ANGameColors.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362C041688E755000F38D8 /* ANGameColors.m */; };
 		FA362C071688EB68000F38D8 /* ANGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362C061688EB68000F38D8 /* ANGameCell.m */; };
+		FA362C0F1688F044000F38D8 /* ANEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362C0E1688F044000F38D8 /* ANEditorViewController.m */; };
+		FA362C121688F1E0000F38D8 /* ANGameBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362C111688F1E0000F38D8 /* ANGameBoardView.m */; };
 		FA64014D1687F1C500D58DB7 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA64014B1687F1C500D58DB7 /* Model.xcdatamodeld */; };
 		FAA6A2811687F2ED002DA071 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA6A2801687F2ED002DA071 /* CoreData.framework */; };
 		FAA6A28B1687F6A8002DA071 /* ANAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6A28A1687F6A8002DA071 /* ANAddViewController.m */; };
 		FAA6A2911687F6BE002DA071 /* Box.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6A28E1687F6BE002DA071 /* Box.m */; };
 		FAA6A29E1687F92F002DA071 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA6A29D1687F92F002DA071 /* Game.m */; };
+		FAA9E01E1689239300888BF7 /* ANSimplisticButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FAA9E01D1689239300888BF7 /* ANSimplisticButton.m */; };
+		FACD072216892BD200541776 /* museo100.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA9E02016892A2C00888BF7 /* museo100.ttf */; };
+		FACD072416892BD500541776 /* museo300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA9E02116892A2C00888BF7 /* museo300.ttf */; };
+		FACD072516892BD700541776 /* museo700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA9E02216892A2C00888BF7 /* museo700.ttf */; };
+		FACD072716892C7900541776 /* museo500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FACD072616892C7900541776 /* museo500.ttf */; };
+		FACD072B168931E000541776 /* ANWordlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FACD072A168931E000541776 /* ANWordlist.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +93,10 @@
 		FA362C031688E755000F38D8 /* ANGameColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGameColors.h; sourceTree = "<group>"; };
 		FA362C041688E755000F38D8 /* ANGameColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGameColors.m; sourceTree = "<group>"; };
 		FA362C061688EB68000F38D8 /* ANGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGameCell.m; sourceTree = "<group>"; };
+		FA362C0D1688F044000F38D8 /* ANEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANEditorViewController.h; sourceTree = "<group>"; };
+		FA362C0E1688F044000F38D8 /* ANEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANEditorViewController.m; sourceTree = "<group>"; };
+		FA362C101688F1E0000F38D8 /* ANGameBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGameBoardView.h; sourceTree = "<group>"; };
+		FA362C111688F1E0000F38D8 /* ANGameBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGameBoardView.m; sourceTree = "<group>"; };
 		FA64014C1687F1C500D58DB7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		FAA6A2801687F2ED002DA071 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FAA6A2891687F6A8002DA071 /* ANAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANAddViewController.h; sourceTree = "<group>"; };
@@ -93,6 +105,14 @@
 		FAA6A28E1687F6BE002DA071 /* Box.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Box.m; sourceTree = "<group>"; };
 		FAA6A29C1687F92F002DA071 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		FAA6A29D1687F92F002DA071 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		FAA9E01C1689239300888BF7 /* ANSimplisticButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANSimplisticButton.h; sourceTree = "<group>"; };
+		FAA9E01D1689239300888BF7 /* ANSimplisticButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANSimplisticButton.m; sourceTree = "<group>"; };
+		FAA9E02016892A2C00888BF7 /* museo100.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = museo100.ttf; sourceTree = "<group>"; };
+		FAA9E02116892A2C00888BF7 /* museo300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = museo300.ttf; sourceTree = "<group>"; };
+		FAA9E02216892A2C00888BF7 /* museo700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = museo700.ttf; sourceTree = "<group>"; };
+		FACD072616892C7900541776 /* museo500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = museo500.ttf; sourceTree = "<group>"; };
+		FACD0729168931E000541776 /* ANWordlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANWordlist.h; sourceTree = "<group>"; };
+		FACD072A168931E000541776 /* ANWordlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANWordlist.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +162,8 @@
 		FA2F30401687F0E800576EF9 /* Cheaterpress */ = {
 			isa = PBXGroup;
 			children = (
+				FACD0728168931AF00541776 /* Logic */,
+				FA362C0C1688F031000F38D8 /* Game Editor */,
 				FA362C021688E73D000F38D8 /* Game Graphics */,
 				FA362BD31688E083000F38D8 /* Main Table */,
 				FAA6A28C1687F6BD002DA071 /* Model */,
@@ -159,6 +181,10 @@
 		FA2F30411687F0E800576EF9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FAA9E02016892A2C00888BF7 /* museo100.ttf */,
+				FACD072616892C7900541776 /* museo500.ttf */,
+				FAA9E02116892A2C00888BF7 /* museo300.ttf */,
+				FAA9E02216892A2C00888BF7 /* museo700.ttf */,
 				FA2F30421687F0E800576EF9 /* Cheaterpress-Info.plist */,
 				FA2F30431687F0E800576EF9 /* InfoPlist.strings */,
 				FA2F30461687F0E800576EF9 /* main.m */,
@@ -242,8 +268,21 @@
 			children = (
 				FA362C031688E755000F38D8 /* ANGameColors.h */,
 				FA362C041688E755000F38D8 /* ANGameColors.m */,
+				FAA9E01C1689239300888BF7 /* ANSimplisticButton.h */,
+				FAA9E01D1689239300888BF7 /* ANSimplisticButton.m */,
 			);
 			path = "Game Graphics";
+			sourceTree = "<group>";
+		};
+		FA362C0C1688F031000F38D8 /* Game Editor */ = {
+			isa = PBXGroup;
+			children = (
+				FA362C0D1688F044000F38D8 /* ANEditorViewController.h */,
+				FA362C0E1688F044000F38D8 /* ANEditorViewController.m */,
+				FA362C101688F1E0000F38D8 /* ANGameBoardView.h */,
+				FA362C111688F1E0000F38D8 /* ANGameBoardView.m */,
+			);
+			path = "Game Editor";
 			sourceTree = "<group>";
 		};
 		FAA6A28C1687F6BD002DA071 /* Model */ = {
@@ -255,6 +294,15 @@
 				FAA6A29D1687F92F002DA071 /* Game.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FACD0728168931AF00541776 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				FACD0729168931E000541776 /* ANWordlist.h */,
+				FACD072A168931E000541776 /* ANWordlist.m */,
+			);
+			path = Logic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +361,10 @@
 				FA2F304D1687F0E800576EF9 /* Default.png in Resources */,
 				FA2F304F1687F0E800576EF9 /* Default@2x.png in Resources */,
 				FA2F30511687F0E800576EF9 /* Default-568h@2x.png in Resources */,
+				FACD072216892BD200541776 /* museo100.ttf in Resources */,
+				FACD072516892BD700541776 /* museo700.ttf in Resources */,
+				FACD072416892BD500541776 /* museo300.ttf in Resources */,
+				FACD072716892C7900541776 /* museo500.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +397,10 @@
 				FA362C011688E158000F38D8 /* BitmapScaleManipulator.m in Sources */,
 				FA362C051688E755000F38D8 /* ANGameColors.m in Sources */,
 				FA362C071688EB68000F38D8 /* ANGameCell.m in Sources */,
+				FA362C0F1688F044000F38D8 /* ANEditorViewController.m in Sources */,
+				FA362C121688F1E0000F38D8 /* ANGameBoardView.m in Sources */,
+				FAA9E01E1689239300888BF7 /* ANSimplisticButton.m in Sources */,
+				FACD072B168931E000541776 /* ANWordlist.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

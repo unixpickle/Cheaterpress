@@ -33,15 +33,38 @@
             break;
         case ANGamePieceColorUntaken:
             if (isDark) {
-                return [UIColor colorWithRed:0.88 green:0.87 blue:0.86 alpha:1];
+                return [UIColor colorWithRed:0.885 green:0.885 blue:0.885 alpha:1];
             } else {
-                return [UIColor colorWithRed:0.89 green:0.89 blue:0.87 alpha:1];
+                return [UIColor colorWithRed:0.91 green:0.91 blue:0.91 alpha:1];
             }
             break;
         default:
             break;
     }
     return nil;
+}
+
++ (UIColor *)colorForBox:(Box *)box {
+    UInt32 color = 0;
+    if (box.owner == BoxOwnerTypeFriendly) {
+        color = ANGamePieceColorFriendly;
+    } else if (box.owner == BoxOwnerTypeEnemy) {
+        color = ANGamePieceColorEnemy;
+    } else {
+        color = ANGamePieceColorUntaken;
+    }
+    if (box.owner == BoxOwnerTypeUnowned) {
+        // figure out if it's checkered or not etc.
+        int index = box.column + (box.row * 5);
+        if (index % 2 == 0) {
+            color |= ANGamePieceModifierDark;
+        }
+    } else {
+        if ([box isBoxSurrounded]) {
+            color |= ANGamePieceModifierDark;
+        }
+    }
+    return [ANGameColors colorForNumber:color];
 }
 
 @end

@@ -20,8 +20,9 @@
 
 - (BOOL)isBoxSurrounded {
     if (self.owner == BoxOwnerTypeUnowned) return NO;
-    for (int x = MAX(0, self.column - 1); x < MIN(5, self.column + 1); x++) {
-        for (int y = MAX(0, self.row - 1); y < MIN(5, self.row + 1); y++) {
+    for (int x = MAX(0, self.column - 1); x <= MIN(4, self.column + 1); x++) {
+        for (int y = MAX(0, self.row - 1); y <= MIN(4, self.row + 1); y++) {
+            if (x != self.column && y != self.row) continue;
             Box * boxAtPoint = nil;
             for (Box * b in self.game.boxes) {
                 if (b.row == y && b.column == x) {

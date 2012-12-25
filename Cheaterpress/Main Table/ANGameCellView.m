@@ -26,18 +26,18 @@
         previewImage.backgroundColor = [UIColor blackColor];
         
         opponentLabel = [[UILabel alloc] initWithFrame:CGRectMake(kANGameCellViewPadding * 2 + thumbnailSize,
-                                                                  kANGameCellViewPadding,
+                                                                  kANGameCellViewPadding + 4,
                                                                   frame.size.width - (kANGameCellViewPadding * 3 + thumbnailSize),
-                                                                  30)];
+                                                                  26)];
         opponentLabel.textColor = [UIColor colorWithWhite:0.26 alpha:1];
-        opponentLabel.font = [UIFont boldSystemFontOfSize:24];
+        opponentLabel.font = [UIFont fontWithName:@"Museo300-Regular" size:20];
         
         dateAdded = [[UILabel alloc] initWithFrame:CGRectMake(opponentLabel.frame.origin.x,
                                                               opponentLabel.frame.origin.y + 35,
                                                               opponentLabel.frame.size.width,
                                                               22)];
         dateAdded.textColor = [UIColor colorWithWhite:0.26 alpha:1];
-        dateAdded.font = [UIFont systemFontOfSize:18];
+        dateAdded.font = [UIFont fontWithName:@"Museo100-Regular" size:18];
         
         [self addSubview:previewImage];
         [self addSubview:opponentLabel];
@@ -46,18 +46,41 @@
     return self;
 }
 
+- (void)setFrame:(CGRect)frame {
+    [super setFrame:frame];
+    CGFloat thumbnailSize = (frame.size.height - kANGameCellViewPadding * 2);
+    
+    previewImage.frame = CGRectMake(kANGameCellViewPadding, kANGameCellViewPadding,
+                                    thumbnailSize, thumbnailSize);
+    opponentLabel.frame = CGRectMake(kANGameCellViewPadding * 2 + thumbnailSize,
+                                     kANGameCellViewPadding,
+                                     frame.size.width - (kANGameCellViewPadding * 3 + thumbnailSize), 30);
+    dateAdded.frame = CGRectMake(opponentLabel.frame.origin.x,
+                                 opponentLabel.frame.origin.y + 35,
+                                 opponentLabel.frame.size.width, 22);
+    previewImage.image = [self generateGameImage];
+}
+
 - (Game *)game {
     return game;
 }
 
 - (void)setGame:(Game *)aGame {
     game = aGame;
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterNoStyle];
+    NSString * addedString = [formatter stringFromDate:game.creation];
+    
     opponentLabel.text = aGame.opponent;
-    dateAdded.text = [NSString stringWithFormat:@"Date added: %@", game.creation];
+    dateAdded.text = [NSString stringWithFormat:@"Added: %@", addedString];
     previewImage.image = [self generateGameImage];
 }
 
 - (UIImage *)generateGameImage {
+    if (!game) return nil;
+    
     UIScreen * s = [UIScreen mainScreen];
     CGSize previewSize = CGSizeMake(previewImage.frame.size.width * s.scale,
                                     previewImage.frame.size.height * s.scale);
@@ -65,28 +88,9 @@
     CGSize boxSize = CGSizeMake(previewSize.width / 5, previewSize.height / 5);
     CGContextRef context = [bitmap context];
     for (Box * b in game.boxes) {
-        CGPoint boxPoint = CGPointMake(boxSize.width * b.column, boxSize.height * b.row);
+        CGPoint boxPoint = CGPointMake(boxSize.width * b.column, boxSize.height * (4 - b.row));
         CGRect boxFrame = CGRectMake(boxPoint.x, boxPoint.y, boxSize.width, boxSize.height);
-        UInt32 color = 0;
-        if (b.owner == BoxOwnerTypeFriendly) {
-            color = ANGamePieceColorFriendly;
-        } else if (b.owner == BoxOwnerTypeEnemy) {
-            color = ANGamePieceColorEnemy;
-        } else {
-            color = ANGamePieceColorFriendly;
-        }
-        if (b.owner == BoxOwnerTypeUnowned) {
-            // figure out if it's checkered or not etc.
-            int index = b.column + (b.row * 5);
-            if (index % 2 == 0) {
-                color |= ANGamePieceModifierDark;
-            }
-        } else {
-            if ([b isBoxSurrounded]) {
-                color |= ANGamePieceModifierDark;
-            }
-        }
-        UIColor * drawColor = [ANGameColors colorForNumber:color];
+        UIColor * drawColor = [ANGameColors colorForBox:b];
         CGContextSetFillColorWithColor(context, [drawColor CGColor]);
         CGContextFillRect(context, boxFrame);
     }

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Box.h"
 
 typedef enum {
     ANGamePieceColorFriendly = 2,
@@ -22,5 +23,6 @@ typedef enum {
 @interface ANGameColors : NSObject
 
 + (UIColor *)colorForNumber:(UInt32)color;
++ (UIColor *)colorForBox:(Box *)box;
 
 @end
