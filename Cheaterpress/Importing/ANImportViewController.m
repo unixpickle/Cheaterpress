@@ -75,7 +75,6 @@
 #pragma mark - Board Import -
 
 - (void)boardImportFinished:(ANBoardImport *)anImport {
-    import = nil;
     for (int i = 0; i < 25; i++) {
         int row = i / 5;
         int column = i % 5;
@@ -92,6 +91,7 @@
     if ([delegate respondsToSelector:@selector(importViewControllerDone:)]) {
         [delegate importViewControllerDone:self];
     }
+    import = nil;
 }
 
 - (void)boardImport:(ANBoardImport *)theImport failedWithError:(NSError *)error {
