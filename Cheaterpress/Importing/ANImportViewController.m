@@ -18,6 +18,8 @@
 
 - (id)initWithGame:(Game *)g {
     if ((self = [super init])) {
+        self.title = @"Import";
+        
         game = g;
         self.view.backgroundColor = [UIColor whiteColor];
         

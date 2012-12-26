@@ -55,6 +55,8 @@
     
     CGFloat sidePadding = anImage.bitmapSize.x / 6;
     
+    BMPixel samplePixel = [otherImage getPixelAtPoint:BMPointMake(1, 1)];
+    
     // from anImage to otherImage
     for (int y = sidePadding; y < anImage.bitmapSize.y - sidePadding; y++) {
         for (int x = sidePadding; x < anImage.bitmapSize.x - sidePadding; x++) {
@@ -62,17 +64,18 @@
             if (pixel.blue < 0.22 && pixel.red < 0.22 && pixel.green < 0.22) {
                 total += 1;
                 BMPixel checkPixel = [otherImage getPixelAtPoint:BMPointMake(x, y)];
-                if (checkPixel.blue < 0.22 && checkPixel.red < 0.22 && checkPixel.green < 0.22) {
+                if (pixelDifference(checkPixel, samplePixel) > 0.5) {
                     matched += 1;
                 }
             }
         }
     }
+    
     // from otherImage to anImage
     for (int y = sidePadding; y < otherImage.bitmapSize.y - sidePadding; y++) {
         for (int x = sidePadding; x < otherImage.bitmapSize.x - sidePadding; x++) {
             BMPixel pixel = [otherImage getPixelAtPoint:BMPointMake(x, y)];
-            if (pixel.blue < 0.22 && pixel.red < 0.22 && pixel.green < 0.22) {
+            if (pixelDifference(pixel, samplePixel) > 0.5) {
                 total += 1;
                 BMPixel checkPixel = [anImage getPixelAtPoint:BMPointMake(x, y)];
                 if (checkPixel.blue < 0.22 && checkPixel.red < 0.22 && checkPixel.green < 0.22) {

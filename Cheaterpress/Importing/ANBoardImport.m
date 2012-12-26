@@ -57,6 +57,9 @@
                           code:1 domain:@"ANBoardImport"];
             return;
         }
+        
+        ANGameTheme * theme = [ANGameTheme gameThemeFromScreenshot:imageBitmap];
+        
         // grab colors (diff between red-blue must be > 0.3)
         CGFloat pieceWidth = [imageBitmap bitmapSize].x / 5;
         CGFloat topStart = [imageBitmap bitmapSize].y - [imageBitmap bitmapSize].x;
@@ -66,15 +69,10 @@
                 CGFloat sampleX = x * pieceWidth + 10;
                 CGFloat sampleY = y * pieceWidth + 10 + topStart;
                 BMPixel pixel = [imageBitmap getPixelAtPoint:BMPointMake((long)sampleX, (long)sampleY)];
-                if (pixel.red > pixel.blue + 0.3) {
-                    owners[index] = BoxOwnerTypeEnemy;
-                } else if (pixel.blue > pixel.red + 0.3) {
-                    owners[index] = BoxOwnerTypeFriendly;
-                } else {
-                    owners[index] = BoxOwnerTypeUnowned;
-                }
+                owners[index] = [theme boxOwnerForColor:pixel];
             }
         }
+        
         if ([[NSThread currentThread] isCancelled]) return;
         
         ANLetterImageList * letterMatcher = [[ANLetterImageList alloc] init];

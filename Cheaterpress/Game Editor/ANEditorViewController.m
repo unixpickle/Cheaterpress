@@ -18,6 +18,8 @@
 
 - (id)initWithGame:(Game *)aGame {
     if ((self = [super init])) {
+        self.title = @"Game";
+        
         self.view.backgroundColor = [UIColor colorWithWhite:240.0/255.0 alpha:1];
         game = aGame;
         context = game.managedObjectContext;

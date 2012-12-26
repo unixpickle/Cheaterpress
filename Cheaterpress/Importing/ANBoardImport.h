@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ANLetterImageList.h"
+#import "ANGameTheme.h"
 
 #import "Box.h"
 #import "Game.h"

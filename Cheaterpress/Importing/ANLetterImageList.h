@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ANImageBitmapRep.h"
+#import "ANGameTheme.h"
 
 @interface ANLetterImageList : NSObject {
     NSDictionary * imagesForLetters;
