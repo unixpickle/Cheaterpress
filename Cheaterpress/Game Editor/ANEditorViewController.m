@@ -32,7 +32,7 @@
         textField.delegate = self;
         [self.view addSubview:textField];
         
-        NSString * file = [[NSBundle mainBundle] pathForResource:@"composed" ofType:@"txt"];
+        NSString * file = [[NSBundle mainBundle] pathForResource:@"real_wordlist" ofType:@"txt"];
         wordlist = [[ANWordlist alloc] initWithFile:file];
         searcher = [[ANWordSearcher alloc] init];
         searcher.delegate = self;

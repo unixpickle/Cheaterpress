@@ -36,13 +36,16 @@
     // of the circle containing the users' gamecenter icons
     CGFloat topRegionSize = gameScreenshot.bitmapSize.y - gameScreenshot.bitmapSize.x;
     CGFloat yValue = topRegionSize - ((topRegionSize / 2.0) - 24 + 140);
+    if (yValue < 0 || yValue + 4 >= gameScreenshot.bitmapSize.y) return nil;
     
     // left circle sample
     CGFloat leftXValue = gameScreenshot.bitmapSize.x / 2 - 24 - 140 / 2;
+    if (leftXValue >= gameScreenshot.bitmapSize.x) return nil;
     BMPixel leftSignatureColor = [gameScreenshot getPixelAtPoint:BMPointMake(leftXValue, yValue + 4)];
     
     // right circle sample
     CGFloat rightXValue = gameScreenshot.bitmapSize.x / 2 + 24 + 140 / 2;
+    if (rightXValue >= gameScreenshot.bitmapSize.x) return nil;
     BMPixel rightSignatureColor = [gameScreenshot getPixelAtPoint:BMPointMake(rightXValue, yValue + 4)];
     
     // determine whether the right or left circle is friendly

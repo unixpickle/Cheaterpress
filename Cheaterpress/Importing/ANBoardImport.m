@@ -59,6 +59,11 @@
         }
         
         ANGameTheme * theme = [ANGameTheme gameThemeFromScreenshot:imageBitmap];
+        if (!theme) {
+            [self triggerError:@"Failed to load theme."
+                          code:2 domain:@"ANGameTheme"];
+            return;
+        }
         
         // grab colors (diff between red-blue must be > 0.3)
         CGFloat pieceWidth = [imageBitmap bitmapSize].x / 5;
@@ -78,14 +83,16 @@
         ANLetterImageList * letterMatcher = [[ANLetterImageList alloc] init];
         for (int y = 0; y < 5; y++) {
             for (int x = 0; x < 5; x++) {
-                int index = x + (y * 5);
-                CGFloat sampleX = x * pieceWidth;
-                CGFloat sampleY = (4 - y) * pieceWidth;
-                CGRect frame = CGRectMake(sampleX, sampleY, pieceWidth, pieceWidth);
-                CGImageRef img = [imageBitmap croppedImageWithFrame:frame];
-                ANImageBitmapRep * imgRep = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageWithCGImage:img]];
-                NSString * letter = [letterMatcher letterMatching:imgRep];
-                letters[index] = (char)[[letter lowercaseString] characterAtIndex:0];
+                @autoreleasepool {
+                    int index = x + (y * 5);
+                    CGFloat sampleX = x * pieceWidth;
+                    CGFloat sampleY = (4 - y) * pieceWidth;
+                    CGRect frame = CGRectMake(sampleX, sampleY, pieceWidth, pieceWidth);
+                    CGImageRef img = [imageBitmap croppedImageWithFrame:frame];
+                    ANImageBitmapRep * imgRep = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageWithCGImage:img]];
+                    NSString * letter = [letterMatcher letterMatching:imgRep];
+                    letters[index] = (char)[[letter lowercaseString] characterAtIndex:0];
+                }
             }
         }
         
@@ -104,7 +111,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         backgroundThread = nil;
         NSError * e = [NSError errorWithDomain:domain code:code userInfo:@{NSLocalizedDescriptionKey: message}];
-        if ([delegate respondsToSelector:@selector(boardImportFailed:)]) {
+        if ([delegate respondsToSelector:@selector(boardImport:failedWithError:)]) {
             [delegate boardImport:self failedWithError:e];
         }
     });

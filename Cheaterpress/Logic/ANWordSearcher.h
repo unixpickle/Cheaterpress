@@ -13,6 +13,8 @@
 #import "Game.h"
 #import "Box.h"
 
+#define kANWordSearcherMaximumWords 15
+
 @class ANWordSearcher;
 
 @protocol ANWordSearcherDelegate <NSObject>

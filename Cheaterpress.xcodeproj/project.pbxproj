@@ -49,6 +49,7 @@
 		FA2F30541687F0E800576EF9 /* ANViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2F30531687F0E800576EF9 /* ANViewController.m */; };
 		FA31E4A5168B83270057DDAB /* ANGameTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = FA31E4A4168B83270057DDAB /* ANGameTheme.m */; };
 		FA31E4F3168BAB700057DDAB /* letter_q.png in Resources */ = {isa = PBXBuildFile; fileRef = FA31E4F2168BAB700057DDAB /* letter_q.png */; };
+		FA31E4F5168BB4790057DDAB /* real_wordlist.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA31E4F4168BB4790057DDAB /* real_wordlist.txt */; };
 		FA362BD91688E0B7000F38D8 /* ANGameCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362BD81688E0B7000F38D8 /* ANGameCellView.m */; };
 		FA362BF61688E158000F38D8 /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362BDC1688E158000F38D8 /* ANImageBitmapRep.m */; };
 		FA362BF71688E158000F38D8 /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA362BDE1688E158000F38D8 /* BitmapContextRep.m */; };
@@ -77,7 +78,6 @@
 		FACD072516892BD700541776 /* museo700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA9E02216892A2C00888BF7 /* museo700.ttf */; };
 		FACD072716892C7900541776 /* museo500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FACD072616892C7900541776 /* museo500.ttf */; };
 		FACD072B168931E000541776 /* ANWordlist.m in Sources */ = {isa = PBXBuildFile; fileRef = FACD072A168931E000541776 /* ANWordlist.m */; };
-		FACD072F1689322600541776 /* brit-a-z.txt in Resources */ = {isa = PBXBuildFile; fileRef = FACD072E1689322600541776 /* brit-a-z.txt */; };
 		FACD0732168935EA00541776 /* ANWordSearcher.m in Sources */ = {isa = PBXBuildFile; fileRef = FACD0731168935EA00541776 /* ANWordSearcher.m */; };
 		FACD073816895D5500541776 /* ANWordSearcherSolution.m in Sources */ = {isa = PBXBuildFile; fileRef = FACD073716895D5500541776 /* ANWordSearcherSolution.m */; };
 /* End PBXBuildFile section */
@@ -134,6 +134,7 @@
 		FA31E4A3168B83270057DDAB /* ANGameTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGameTheme.h; sourceTree = "<group>"; };
 		FA31E4A4168B83270057DDAB /* ANGameTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGameTheme.m; sourceTree = "<group>"; };
 		FA31E4F2168BAB700057DDAB /* letter_q.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = letter_q.png; sourceTree = "<group>"; };
+		FA31E4F4168BB4790057DDAB /* real_wordlist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = real_wordlist.txt; sourceTree = "<group>"; };
 		FA362BD41688E099000F38D8 /* ANGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGameCell.h; sourceTree = "<group>"; };
 		FA362BD71688E0B7000F38D8 /* ANGameCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANGameCellView.h; sourceTree = "<group>"; };
 		FA362BD81688E0B7000F38D8 /* ANGameCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANGameCellView.m; sourceTree = "<group>"; };
@@ -184,7 +185,6 @@
 		FACD072616892C7900541776 /* museo500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = museo500.ttf; sourceTree = "<group>"; };
 		FACD0729168931E000541776 /* ANWordlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANWordlist.h; sourceTree = "<group>"; };
 		FACD072A168931E000541776 /* ANWordlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANWordlist.m; sourceTree = "<group>"; };
-		FACD072E1689322600541776 /* brit-a-z.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "brit-a-z.txt"; sourceTree = "<group>"; };
 		FACD0730168935EA00541776 /* ANWordSearcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANWordSearcher.h; sourceTree = "<group>"; };
 		FACD0731168935EA00541776 /* ANWordSearcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANWordSearcher.m; sourceTree = "<group>"; };
 		FACD073616895D5500541776 /* ANWordSearcherSolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANWordSearcherSolution.h; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 		FA2F30411687F0E800576EF9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				FACD072E1689322600541776 /* brit-a-z.txt */,
+				FA31E4F4168BB4790057DDAB /* real_wordlist.txt */,
 				FA265A57168A428A0036E7E3 /* composed.txt */,
 				FA265A2D168A2FF30036E7E3 /* letter_a.png */,
 				FA265A2E168A2FF30036E7E3 /* letter_b.png */,
@@ -499,7 +499,6 @@
 				FACD072516892BD700541776 /* museo700.ttf in Resources */,
 				FACD072416892BD500541776 /* museo300.ttf in Resources */,
 				FACD072716892C7900541776 /* museo500.ttf in Resources */,
-				FACD072F1689322600541776 /* brit-a-z.txt in Resources */,
 				FA265A28168A18710036E7E3 /* letter_c.png in Resources */,
 				FA265A29168A18710036E7E3 /* letter_p.png in Resources */,
 				FA265A2A168A18710036E7E3 /* letter_v.png in Resources */,
@@ -527,6 +526,7 @@
 				FA265A56168A30310036E7E3 /* letter_z.png in Resources */,
 				FA265A58168A428A0036E7E3 /* composed.txt in Resources */,
 				FA31E4F3168BAB700057DDAB /* letter_q.png in Resources */,
+				FA31E4F5168BB4790057DDAB /* real_wordlist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

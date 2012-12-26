@@ -74,7 +74,7 @@ static BOOL _ANWordSearcherPositionListSqueezeIn(ANWordSearcherPositionList * li
             return;
         }
         ANWordSearcherPositionList * positionList = NULL;
-        uint32_t count = 10;
+        uint32_t count = kANWordSearcherMaximumWords;
         if (![self generatePositionList:&positionList count:&count wordlist:filtered board:board]) {
             ANWordSearcherBoardFree(board);
             return;
@@ -158,13 +158,20 @@ static BOOL _ANWordSearcherPositionListSqueezeIn(ANWordSearcherPositionList * li
         }
         
         // bump our best tally to the list if it fits
+        BOOL hasDoneIt = NO;
         for (uint32_t listIndex = 0; listIndex < newCount; listIndex++) {
             ANWordSearcherPositionList testList = lists[listIndex];
+            if (hasDoneIt) {
+                free(testList.positions);
+                continue;
+            }
             if (testList.tally == bestTally) {
                 if (!_ANWordSearcherPositionListSqueezeIn(list, count, &filled, testList)) {
                     free(testList.positions);
                 }
-                break;
+                hasDoneIt = YES;
+            } else {
+                free(testList.positions);
             }
         }
         free(lists);
